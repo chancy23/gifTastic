@@ -5,17 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GIFreakingTastic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
-    <!-- need div to show buttons, and to add new buttons too -->
+    <div class="container col-sm-10">
+        <div class="row">
+            <div class="col-sm-12" id="header">
+                <h1>GIFreakingTastic</h1>
+            </div>
+        </div>
 
-    <!-- place for search input and button creation -->
+        <!-- need div to show buttons, and to add new buttons too -->
+        <div class="row">
+            <div class="col-sm-12" id="gifButtons"></div>
+        </div>
 
-    <!-- need a div to display gifs when button is clicked. -->
+        <!-- place for search input and button creation -->
+        <div class="row">
+            <div class="col-sm-4" id="searchArea">
+                <div class="input-group mb-3" id="searchBar">
+                    <input type="text" class="form-control" aria-label="Add Topic" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add Topic</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- need a div to display gifs when button is clicked. -->
+        <div class="row">
+                <div class="col-sm-12" id="displayGifs"></div>
+        </div>
 
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/javascript/logic.js"></script>
 </body>
 </html>
