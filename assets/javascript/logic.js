@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //intial array of gif topics to populate in buttons and to add to upon new topic creation from user
-    var topics = ["Irritated", "Laughing", "Happy", "Sad", "Angry", "Eye Roll"];
+    var topics = ["Irritated", "Laughing", "Happy", "Sad", "Angry", "Eye Roll", "Finger Snaps", "Excited"];
 
 
     //functions ================================================================
@@ -13,7 +13,7 @@ $(document).ready(function() {
         //add text from array strings to display on button (for loop)
         for (var i = 0; i < topics.length; i++) {
             //create the button and add the class and then add the text from the for loop array
-            var gifButton = $("<button>").addClass("btn btn-outline-dark gifButton");
+            var gifButton = $("<button>").addClass("btn btn-light gifButton");
             gifButton.attr("data-button", topics[i])
             gifButton.text(topics[i]);
             //load those buttons to page
@@ -52,22 +52,28 @@ $(document).ready(function() {
 
             for (var i = 0; i < results.length; i++) {
                 //create a new div for each gif to display the rating and image
-                var gifDiv = $("<div>");
+                var gifDiv = $("<div>").addClass("gifDiv");
 
                 //create a p tag add the rating to it
-                var p = $("<p>").text("Rating: " + results[i].rating);
+                var p = $("<p>").text("Rating: " + results[i].rating.toUpperCase());
+
+                //add title above image, give title case and limit width to not overlap the gif image
+                var gifTitle = $("<h5>").text(results[i].title);
+                gifTitle.css("textTransform", "capitalize");
+                gifTitle.css("width", "190px");
 
                 //create img tag for each gif assign to variable
                 //add src attr to img and the still image url
-                var gifStill = $("<img>").attr("src", results[i].images.fixed_height_still.url);
+                var gifStill = $("<img>").attr("src", results[i].images.fixed_width_still.url);
                 //add the data still and animate attributes for onclick events later
-                gifStill.attr("data-still", results[i].images.fixed_height_still.url);
-                gifStill.attr("data-animate", results[i].images.fixed_height.url);
+                gifStill.attr("data-still", results[i].images.fixed_width_still.url);
+                gifStill.attr("data-animate", results[i].images.fixed_width.url);
                 gifStill.attr("data-state", "still");
                 gifStill.addClass("gif");
 
+                //add title to gifdiv
+                gifDiv.append(gifTitle);
                 //add p and image elements to the new gifDiv
-                
                 gifDiv.append(gifStill);
                 gifDiv.append(p);
 
@@ -83,22 +89,17 @@ $(document).ready(function() {
     $(".addTopic").on("click", function(event) {
         //stop from resetting page and allow user to hit enter as well as click
         event.preventDefault();
-
-        //clear button area div so don't duplicate buttons
-        //$("#gifButtons").empty();
-
         //take value from text input
         var newTopic = $("#addTopicTerm").val().trim();
             //console.log("this is the new topic " + newTopic);
-
+        
         //push new string to the topics array
-        topics.push(newTopic)
-
+        topics.push(newTopic);
         //render text to button using createButton function
         createButtons();
 
         //clear text input after hitting the submit button
-        $("#addTopicTerm").empty();
+        $("#addTopicTerm").val("");
     });
 
     //onclick event to animate gif// or still it if animated.
