@@ -6,6 +6,15 @@ body {
     background-color: rgb(0,136,150);
 }
 
+#header {
+    background-color: rgb(83, 81, 81);
+    padding: 20px;
+}
+
+#gifButtons {
+    padding: 10px;
+}
+
 .btn,
 #addTopicTerm {
     background-color: rgb(239,243,210);
@@ -13,7 +22,8 @@ body {
     color: gray;
 }
 
-.btn-light:hover {
+.btn-light:hover,
+.btn-outline-secondary:hover {
     background-color: rgb(0,77,140);
     color: rgb(239,243,210);
     border: none;
@@ -28,14 +38,29 @@ body {
 
 }
 
+.gifDiv {
+    display: inline-block;
+    margin: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: rgb(252,149,0);
+
+}
+
+.gif {
+    width: 270px;
+}
+
 h1,
 h5,
 p {
     color: rgb(239,243,210);
 }
 
-.gifDiv {
-    display: inline-block;
-    margin: 5px;
-    max-width: 400px;
+h1 {
+    text-align: center;
+}
+
+#footer {
+    margin: 10px auto;
 }

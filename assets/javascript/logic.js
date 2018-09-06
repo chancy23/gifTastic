@@ -52,15 +52,14 @@ $(document).ready(function() {
 
             for (var i = 0; i < results.length; i++) {
                 //create a new div for each gif to display the rating and image
-                var gifDiv = $("<div>").addClass("gifDiv");
+                var gifDiv = $("<div>").addClass("gifDiv").addClass("rounded");
 
                 //create a p tag add the rating to it
                 var p = $("<p>").text("Rating: " + results[i].rating.toUpperCase());
 
                 //add title above image, give title case and limit width to not overlap the gif image
                 var gifTitle = $("<h5>").text(results[i].title);
-                gifTitle.css("textTransform", "capitalize");
-                gifTitle.css("width", "190px");
+                gifTitle.css("textTransform", "capitalize").css("width", "265px");
 
                 //create img tag for each gif assign to variable
                 //add src attr to img and the still image url
