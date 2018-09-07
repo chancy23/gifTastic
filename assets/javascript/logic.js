@@ -3,6 +3,9 @@ $(document).ready(function() {
     //intial array of gif topics to populate in buttons and to add to upon new topic creation from user
     var topics = ["Irritated", "Laughing", "Happy", "Sad", "Angry", "Eye Roll", "Finger Snaps", "Excited"];
 
+    //hide favorites area until a GIFs are added to it
+    $("#favoriteGifsArea").hide();
+
 
     //functions ================================================================
 
@@ -30,15 +33,14 @@ $(document).ready(function() {
 
     //on click of the topic button, call the api, with the value of hte button and return gifs
     $("#gifButtons").on("click", ".gifButton", function() {
-        //prevent hitting enter from refreshing page
-
         var apiKey = "&api_key=BBccJQM11fXinnCUWdUrWfK9kpo2qWPq&";
+        //get the search term from the search text field
         var searchTerm =  $(this).attr("data-button");
-            console.log("this is the term to search: " + searchTerm);
+            //console.log("this is the term to search: " + searchTerm);
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + apiKey + "&limit=10";
             //test queryURL for Troubleshooting
-            console.log("this is the queryURL " + queryURL);
+            //console.log("this is the queryURL " + queryURL);
 
         //do the ajax call to display the gif as a still for button clicked
         $.ajax({
@@ -52,14 +54,14 @@ $(document).ready(function() {
 
             for (var i = 0; i < results.length; i++) {
                 //create a new div for each gif to display the rating and image
-                var gifDiv = $("<div>").addClass("gifDiv").addClass("rounded");
+                var gifDiv = $("<div>").addClass("gifDiv rounded");
 
                 //create a p tag add the rating to it
                 var p = $("<p>").text("Rating: " + results[i].rating.toUpperCase());
 
                 //add title above image, give title case and limit width to not overlap the gif image
                 var gifTitle = $("<h5>").text(results[i].title);
-                gifTitle.css("textTransform", "capitalize").css("width", "265px");
+                gifTitle.css("textTransform", "capitalize").css("width", "260px");
 
                 //create img tag for each gif assign to variable
                 //add src attr to img and the still image url
@@ -70,16 +72,19 @@ $(document).ready(function() {
                 gifStill.attr("data-state", "still");
                 gifStill.addClass("gif");
 
-                //add title to gifdiv
-                gifDiv.append(gifTitle);
-                //add p and image elements to the new gifDiv
-                gifDiv.append(gifStill);
-                gifDiv.append(p);
+                //add favorite button to each gif
+                var addFavorite = $("<button>").addClass("btn btn-light gifFave fa fa-bookmark-o");
+                addFavorite.css("font-size", "18px");
+                addFavorite.attr("src", results[i].images.fixed_width.url);
 
-                //display gifs in dom, with the rating
-                //append the div and to the div for displaying gifs
+                //add title, image, and p variables to gifdiv
+                gifDiv.append(gifTitle).append(gifStill).append(p);
+
+                //add favorite button below the image
+                p.append(addFavorite);
+
+                //prepend the gif div and to the div for displaying gifs
                 $("#displayGifs").prepend(gifDiv);
-
             };
         });
     });
@@ -88,12 +93,14 @@ $(document).ready(function() {
     $(".addTopic").on("click", function(event) {
         //stop from resetting page and allow user to hit enter as well as click
         event.preventDefault();
+
         //take value from text input
         var newTopic = $("#addTopicTerm").val().trim();
             //console.log("this is the new topic " + newTopic);
         
         //push new string to the topics array
         topics.push(newTopic);
+
         //render text to button using createButton function
         createButtons();
 
@@ -101,7 +108,7 @@ $(document).ready(function() {
         $("#addTopicTerm").val("");
     });
 
-    //onclick event to animate gif// or still it if animated.
+    //onclick event to animate gif or still it if animated.
     $("#displayGifs").on("click", ".gif", function() {
         var gifState = $(this).attr("data-state");
         //if gif state is still, then change it to the data animate src url
@@ -117,5 +124,29 @@ $(document).ready(function() {
         };
     });
 
+    //on click event on add to favorite button to add to favorites div
+    $("#displayGifs").on("click", ".gifFave", function() {
+        //create var for gif that is favorited and add the animated src URL from the api call
+        var favoriteGif = $("<img>").attr("src", $(this).attr("src"));
+        //give the image some margins and set the width
+        favoriteGif.css("margin", "5px").css("width", "260px");
+
+        //append to the favorites give
+        $("#favoriteGifsArea").append(favoriteGif);
+
+        //show area once favorite is added (how to get it not to flash on page refresh though without creating with js)
+        $("#favoriteGifsArea").show();
+
+        //below is trying to get local storage to work from sandbox version **ignore**
+            //localStorage.clear(); 
+            //push favorite gif to the favorite gifs array
+            //favoriteGifs.push(favoriteGif);
+            //display the array on the page
+            //$("#favoriteGifsArea").append(favoriteGifs);
+            //set the array to local storage,
+            //localStorage.setItem("favoritedGifs", favoriteGifs);
+            //$("#favoriteGifsArea").append(localStorage.getItem("favoritedgifs"));
+            //console.log("this is favorite gifs array " + favoriteGifs);
+    });
 
 })

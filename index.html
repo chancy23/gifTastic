@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GIFreakingTastic</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
-    <div class="container col-sm-8 rounded-bottom">
+    <div class="container col-sm-10 rounded-bottom">
         <div class="row">
             <div class="col-sm-12 rounded-bottom" id="header">
-                <h1>That's Just GIFreakingTastic</h1>
+                <h1>That's Just GIFreakingTastic!</h1>
             </div>
         </div>
 
@@ -24,7 +25,7 @@
 
         <!-- place for search input and button creation -->
         <div class="row">
-            <div class="col-sm-6" id="searchArea">
+            <div class="col-sm-4" id="searchArea">
                 <div class="input-group mb-3" id="searchBar">
                     <input type="text" class="form-control" id="addTopicTerm" aria-label="Add Topic" aria-describedby="button-addon2">
                     <div class="input-group-append">
@@ -34,14 +35,21 @@
             </div>
         </div>
 
-        <!-- need a div to display gifs when button is clicked. -->
+        <!-- need a div to display GIFs when button is clicked. -->
         <div class="row">
-                <div class="col-sm-12" id="displayGifs"></div>
+            <div class="col-sm-6" id="displayGifs">
+            </div>
+
+            <!-- area to display favorited GIFs -->
+            <div class="col-sm-6" id="favoriteGifsArea">
+                <h3>My Favorite Freaking GIFs!</h3>
+            </div>
         </div>
-        <!-- display the powered by GIPHY img -->
+
+        <!-- display the powered by GIPHY img in a footer-->
         <div class="row">
             <div class="col-sm-3" id="footer">
-                <img src="./assets/images/PoweredBy_200px-White_HorizLogo.png" alt="">
+                <img src="./assets/images/PoweredBy_200px-White_HorizLogo.png" alt="Powered By GIPHY">
             </div>
         </div>
 

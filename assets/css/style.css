@@ -1,20 +1,27 @@
+/* page component stying */
+
 body {
-    background-color: rgb(252,149,0);
+    background-color: rgb(0,136,150);
 }
 
 .container {
-    background-color: rgb(0,136,150);
+    background-color: rgb(252,149,0);
 }
 
 #header {
     background-color: rgb(83, 81, 81);
-    padding: 20px;
+    padding: 30px;
 }
 
 #gifButtons {
     padding: 10px;
 }
 
+#footer {
+    margin: 10px auto;
+}
+
+/* button styling */
 .btn,
 #addTopicTerm {
     background-color: rgb(239,243,210);
@@ -33,34 +40,47 @@ body {
     margin: 5px;
 }
 
-#searchBar {
-    margin-top: 20px;
-
+.gifFave {
+    margin-left: 10px;
+    margin-top: 5px;
 }
 
+#searchBar {
+    margin-top: 20px;
+}
+
+/* gif area styling, including divs, and gifs */
 .gifDiv {
     display: inline-block;
     margin: 5px;
     padding-right: 5px;
     padding-left: 5px;
-    background-color: rgb(252,149,0);
+    background-color: rgb(0,136,150);
 
 }
 
 .gif {
-    width: 270px;
+    width: 260px;
 }
 
+/* text items styling */
 h1,
+h3,
 h5,
 p {
     color: rgb(239,243,210);
 }
 
-h1 {
+p {
+    margin-bottom: 5px;
+}
+
+h1,
+h3 {
     text-align: center;
 }
 
-#footer {
-    margin: 10px auto;
+h3 {
+    background: rgb(83, 81, 81);
+    padding: 15px;
 }
