@@ -1,7 +1,7 @@
 # That's Just GIFreakingTastic!
 
 ### Overview
-This app allows users to load GIF images from the premade GIF topics, or make their own GIF topics and add them as new buttons to the page and view those GIFs. 
+This just for fun app allows users to load GIF images from the premade GIF topics, or make their own GIF topics and add them as new buttons to the page and view those GIFs. 
 
 Each time a topic button is clicked it will load the 10 trending GIFs to the top of the display area.
 
@@ -10,3 +10,5 @@ This app utilizes the Giphy API to return the gif still images, which can be ani
 Users can click on the bookmark icon to add a GIF to their favorites area (saving and reloading upon a refresh or page reload is still in the works).
 
 Questions or issues can be sent to chancyleath@hotmail.com
+
+Deployed at: https://chancy23.github.io/gifTastic/
