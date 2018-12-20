@@ -18,6 +18,6 @@ Users can click on the bookmark icon to add a GIF to their favorites area (savin
 
 Questions or issues can be sent to chancyleath@hotmail.com
 
-Video Demo: https://drive.google.com/open?id=1ulkK9AMFNkZnUCRXNflykWNqMP9bIK6K
+Video Demo: https://drive.google.com/file/d/1ulkK9AMFNkZnUCRXNflykWNqMP9bIK6K/view?usp=sharing
 
 Deployed at: https://chancy23.github.io/gifTastic/
